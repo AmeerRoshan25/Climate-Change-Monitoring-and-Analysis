@@ -1,0 +1,16 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="container" style="margin-top: 80px;">
+    <div class="jumbotron" style="margin-top: 80px; background-image: url('https://source.unsplash.com/random'); background-size: cover; background-position: center;">
+        <h1 class="text-danger">{{greeting}}</h1><br>
+        <h1 class="text-warning">Welcome to {{username}},</h1>
+        <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="text-info">weather isn't just a forecast, it's knowledge. We're passionate about empowering everyone to understand the sky's influence on our lives. Whether you're planning a weekend getaway or need reliable data for critical decisions, we've got you covered. Our user-friendly platform offers clear forecasts for individuals, alongside in-depth weather data and advanced analytics for policymakers</h3>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

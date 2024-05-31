@@ -1,0 +1,21 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}News{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron"style="margin-top: 80px; background-image: url('https://source.unsplash.com/random'); background-size: cover; background-position: center;">
+        <h1 class="text-info">Top 10 Weather Alerts in India:</h1>
+        {% for x in n %}
+            {% if x != "[Removed]" %}
+                <div class="card bg-danger text-light mb-3">
+                    <div class="card-body">{{ x }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="row justify-content-center">
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,64 @@
+{% extends 'html/base1.html' %}
+{% block title %}Graphs{% endblock %}
+{% block content %}
+<div class="container mt-4 d-flex justify-content-center" style="background-color: aquamarine;">
+    <div class="jumbotron d-flex justify-content-center">
+        <div class="col-md-10 d-flex justify-content-center">
+            <div class="row">
+                <!-- Left side table -->
+                <div class="col-md-6 table-small">
+                    <table class="table rounded-table table-success table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-danger">Weather</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <tr>
+                                        <td>
+                                            {% if chart %}
+                                            <img src="data:image/png;base64, {{chart|safe}}" width="900" height="400">
+                                            {% endif %}  
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Right side content -->
+                <div class="col-md-6 ml-4">
+                    <div class="row">
+                        <table class="table rounded-table table-warning table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-danger">Weather</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <tr>
+                                            <td>
+                                                {% if chart %}
+                                                <img src="data:image/png;base64, {{bar|safe}}" width="900" height="400">
+                                                {% endif %}  
+                                            </td>
+                                        </tr>
+                                    </td>
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <!-- Additional content if any -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

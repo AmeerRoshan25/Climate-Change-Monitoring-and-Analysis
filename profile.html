@@ -1,0 +1,39 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="container justify-content-start" style="margin-top: 80px;">
+    <div  style="margin-top: 80px; background-image: url('/static/images/wel.jpg'); background-size: cover; background-position: center;">
+        <h1 class="text-danger">{{greeting}}</h1><br>
+        <h1 class="text-info">Welcome to {{username}},</h1>
+    </div>
+</div>
+<div class="container" style="margin-top: 80px;">
+    <div class="row justify-content-start">
+        <div class="col-md-6">
+            <!-- Left side Table -->
+            <table class="table rounded-table table-warning table-hover table-round">
+                <thead>
+                    <tr>
+                        <th class="text-danger">PROFILE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="media border p-3">
+                                <img src="{% static 'images/img_avatar3.png' %}" alt="Avatar" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                                <div class="media-body">
+                                    <h4 class="text-info">Name: {{n}}</h4><br>
+                                    <h4 class="text-danger">Place: {{p}}</h4><br>
+                                    <h4 class="text-success">Email-id: {{e}}</h4><br>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

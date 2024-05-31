@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background:url('/static/images/homebg2.jpg') center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .table-small {
+            margin-bottom: 15px;
+        }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure navbar is above other content */
+        }
+        .rounded-table {
+            border-radius: 10px; /* Adjust the radius as needed */
+            overflow: hidden; /* Ensure the overflow content is hidden */
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand">
+            <img src="{% static 'images/globe1.jpg' %}" class="rounded-circle "  alt="Logo" style="width:40px;">
+            CLIMATE REPORT&nbsp;&nbsp;&nbsp;{{cud}} {{curda}} {{curt}}
+        </a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  LOGOUT
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'plog' %}">PolicyMakers</a>
+                  <a class="dropdown-item" href="{% url 'ho' %}">LOGOUT</a>
+                </div>
+            </div>
+          </ul>
+        </div>
+      </nav>
+      <br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Right side Tables -->
+                <div class="row">
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-danger">Weather</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h2>{{w}}</h2>
+                                        <h5 class="text-success">{{des}}</h5>
+                                    </td>
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-warning">Temperature : <h2>{{ct}}&deg;c.</h2></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h5>Min_temp : {{mit}}&deg;c.</h5><br>
+                                        <h5>Max_temp : {{mat}}&deg;c.</h5><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-info">Wind</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Speed: {{sp}}m/s</h4><br>
+                                        <h5 class="text-success">clouds: {{cld}}% of the sky is covered by clouds.</h5>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-warning">More Deatails</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Humidity : {{hun}}</h4><br>
+                                        <h4>Pressure : {{pre}}pha</h4><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

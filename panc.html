@@ -1,0 +1,97 @@
+{% extends 'html/base1.html' %}
+{% block title %}CITY{% endblock %}
+{% block content %}
+<div class="container mt-4" style="background-color: aquamarine;">
+    <div class="jumbotron" style="background-image:url('/static/images/weather.png') ; background-size: cover;">
+        <h2 class="text-danger">WELCOME</h2>
+        <form class="was-validated" method="post" style="margin-bottom: 30px;">
+            {% csrf_token %}
+            <div class="form-group pt-3 text-light" style="background-color: #43d098;">
+                <label for="NAME">PLACE:</label>
+                <input type="text" class="form-control" id="place" placeholder="Enter PLACE" name="pa" required>
+            </div>
+            <button type="submit" class="btn btn-info mx-5 mx-5">Get information</button>
+        </form>
+        <h3 class="text-danger">{{k}} {{l}}</h3>
+        <div style="padding: top 50px;;">
+            <div class="col-md-10">
+                <!-- Right side Tables -->
+                <div class="row">
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-warning">Weather</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h2>{{w}}</h2>
+                                        <h5 class="text-success">{{des}}</h5>
+                                    </td>
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-warning">Temperature : <h2>{{ct}}&deg;c.</h2></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h5>Min_temp : {{mit}}&deg;c.</h5><br>
+                                        <h5>Max_temp : {{mat}}&deg;c.</h5><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-info">Wind</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Speed: {{sp}}m/s</h4><br>
+                                        <h5 class="text-success">clouds: {{cld}}% of the sky is covered by clouds.</h5>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6 table-small">
+                        <table class="table rounded-table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-warning">More Deatails</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Humidity : {{hun}}</h4><br>
+                                        <h4>Pressure : {{pre}}pha</h4><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

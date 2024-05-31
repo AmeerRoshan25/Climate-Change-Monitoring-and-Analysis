@@ -1,0 +1,51 @@
+{% extends 'html/base1.html' %}
+{% block title %}predict{% endblock %}
+{% block content %}
+<div class="container mt-4" style="background-color: aquamarine;">
+    <div class="jumbotron d-flex justify-content-start">
+        <br>
+        <form class="was-validated" method="post">
+            {% csrf_token %}
+            <div class="form-group pt-3 text-light" style="background-color: hsl(68, 60%, 54%);">
+                <label for="NAME" class="text-danger">Enter Year</label>
+                <input type="number" class="form-control" id="place" placeholder="Enter Year" name="pa"  required>
+            </div>
+            <div class="form-group pt-3 text-light" style="background-color: hsl(227, 30%, 66%);">
+                <label for="NAME" class="text-danger">Enter month</label>
+                <input list="browsers" id="browser" placeholder="Select month" name="smo">
+                <datalist id="browsers">
+                    <option value="JAN">
+                    <option value="FEB">
+                    <option value="MAR">
+                    <option value="APR">      
+                    <option value="MAY">
+                    <option value="JUN">
+                    <option value="JUL">
+                    <option value="AUG">
+                    <option value="SEP">
+                    <option value="OCT">
+                    <option value="NOV">      
+                    <option value="DEC">
+                </datalist>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">predict</button>
+            </div> 
+        </form>
+        <table class="table table-info table-hover ml-4">
+            <thead>
+            <tr>
+                <th>YEAR</th>
+                <th>Temperature</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{year}} {{m}}</td>
+                <td>{{pre}}&deg;c.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

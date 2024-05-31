@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Policy</title>
+</head>
+<body style="background-image: url('/static/images/comm1.jpg'); background-size: cover;">
+    <div class="container mt-4 justify-content-end">
+        <div class="card col-md-5 mx-auto shadow-lg" style="margin-top: 200px; background-color: burlywood;">
+            <div class="card-body">
+                <h4>Login</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username" class="form-control my-2 required">
+                    <input type="password" name="password" placeholder="Password" class="form-control my-2 required">
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" class="btn btn-outline-secondary form-control" href="{% url 'plog' %}" value="LOGIN">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

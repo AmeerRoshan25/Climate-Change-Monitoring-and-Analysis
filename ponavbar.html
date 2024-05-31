@@ -1,0 +1,48 @@
+{% load static %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">
+    <img src="{% static 'images/globe.png' %}" class="rounded-circle" width="20px" height="50px"></a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/pancl/' %}active{% endif %}" href="{% url 'panc' %}">City</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Temperature
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'grp' %}">Temperature of GOA</a>
+          <a class="dropdown-item  text-danger" href="{% url 'indg' %}">Temperature India</a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/predict/' %}active{% endif %}" href="{% url 'pred' %}">predict</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/comm/' %}active{% endif %}" href="{% url 'com' %}">#comments/Post</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" style="margin-right:120px">
+      <div class="d-flex justify-content-end">
+        <a href="{% url 'lgt' %}" class="btn btn-info" role="button">LOGOUT</a>
+      </div>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Failed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background:url('/static/images/logbi2.avif') center center fixed;
+            background-size: cover;
+            color: #fff; /* Text color for the climate portal information */
+        }
+        #climatePortal {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: left;
+            padding: 10px;
+        }
+        .container {
+            text-align: center;
+            background-color: hsla(315, 83%, 5%, 0.567); /* Background color with opacity */
+            padding: 5px;
+            border-radius: 1px;
+            box-shadow: 0 0 10px #896c6c1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="climatePoints">
+            <h3 class="text-danger">
+                LOGIN Details are InCorrect
+            </h3>
+
+            <div class="card bg-danger text-white">
+                <div class="card-body">Your Details are mismatched<br>Please TRY IT AGAIN</div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+            <a href="{% url 'lou' %}" class="btn btn-info" role="button">LOGIN</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

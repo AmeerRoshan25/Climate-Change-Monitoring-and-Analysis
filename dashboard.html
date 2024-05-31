@@ -1,0 +1,54 @@
+{% load static %}
+<nav class="navbar navbar-expand-md bg-info navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">
+  <img src="{% static 'images/globe1.jpg' %}" class="rounded-circle" width="20px" height="50px"></a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/profile/' %}active{% endif %} text-warning" href="{% url 'pro' %}">profile</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/temp/' %}active{% endif %} text-danger" href="{% url 'temp' %}">Temperature</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/news/' %}active{% endif %} text-warning" href="{% url 'new' %}">News</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/Alters/' %}active{% endif %} text-danger" href="{% url 'alt' %}">Alters</a>
+      </li>
+    </ul>
+    
+    <ul class="navbar-nav ml-auto" style="margin-right:120px">
+        <div class="d-flex justify-content-end">
+          <div class="dropdown">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+              LOGOUT
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'plog' %}">PolicyMakers</a>
+              <a class="dropdown-item" href="{% url 'loout' %}" onclick="myfun()">LOGOUT</a>
+            </div>
+        </div>
+        </div>
+    </ul>
+  </div>
+</nav>
+<script>
+  function myfun() {
+    alert("Are you sure you want to logout?")
+  }
+  </script>

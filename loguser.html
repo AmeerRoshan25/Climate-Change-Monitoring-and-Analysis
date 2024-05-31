@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>LOGIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background:url('/static/images/login5.jpg') center center fixed;
+            background-size: cover;
+            color: #fff; /* Text color for the climate portal information */
+        }
+        #climatePortal {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: left;
+            padding: 10px;
+        }
+        .container {
+            text-align: center;
+             /* Background color with opacity */
+            padding: 5px;
+            border-radius: 1px;
+            box-shadow: 0 0 10px #896c6c1a;
+        }
+    </style>
+</head>
+<body>
+    <div id="climatePortal">
+        <h2 class="text-danger">LOGIN</h2>
+    </div>
+    <div class="container pt-5 my-5">
+        <h1 class="text-info">LOGIN</h1>
+        <h3>{{l}}</h3>
+        <form class="was-validated" method="post">
+            {% csrf_token %}
+            <div class="form-group pt-3 text-light" style="background-color:rgb(104, 217, 106);">
+                <label for="NAME" class="text-danger">EMAIL-ID</label>
+                <input type="email" class="form-control" id="NAME" placeholder="Enter Email-id" name="ms" required>
+            </div>
+            <div class="form-group pt-3 text-light" style="background-color: hsl(66, 60%, 54%);">
+                <label for="NAME" class="text-danger">Enter Password</label>
+                <input type="password" class="form-control" id="place" placeholder="Enter Password" name="pa"  required>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">LOGIN</button>
+            </div>
+        </form>
+        <div class="button" style="margin-top: 20px;">
+            <a href="{% url 'forp' %}"  class="btn btn-danger text-warning" role="button">Forgot Password</a>
+        </div>
+    </div>
+
+</body>
+</html>

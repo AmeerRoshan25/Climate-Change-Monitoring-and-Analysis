@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>PASSWORD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background:url('/static/images/logbi2.avif') center center fixed;
+            background-size: cover;
+            color: #fff; /* Text color for the climate portal information */
+        }
+        #climatePortal {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: left;
+            padding: 10px;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(153, 107, 128, 0); /* Background color with opacity */
+            padding: 5px;
+            border-radius: 1px;
+            box-shadow: 0 0 10px #896c6c1a;
+        }
+        .above-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="climatePortal">
+        <h2>Create Password</h2>
+    </div>
+    <div class="container">
+        <div id="climatePoints">
+            <h3 class="text-danger">
+                Please Create Password As Per Below instructions
+            </h3>
+            <div>
+                <h5>* Password Should contains only 8 Characters <br>* Password Should Start with Only Captial Letter And Remaing Should be only Numericals </h5>
+            </div>
+            <form class="was-validated" method="post">
+                {% csrf_token %}
+                <div class="form-group pt-3 text-light" style="background-color: rgb(131, 131, 125);">
+                    <label for="NAME" class="text-danger">EMAIL-ID</label>
+                    <span class="badge badge-pill badge-success">Verified</span>
+                    <input type="password" class="form-control" id="place" placeholder={{n}} readonly>
+                </div>
+                <div class="form-group pt-3 text-light" style="background-color: hsl(68, 60%, 54%);">
+                    <label for="NAME" class="text-danger">Create Password</label>
+                    <input type="password" class="form-control" id="place" placeholder="Enter Password" name="pa" pattern="^[A-Z]{1}[0-9]{7}$" required>
+                </div>
+                <div class="form-group pt-3 text-light" style="background-color: hsl(119, 69%, 42%);">
+                    <label for="NAME" class="text-danger">Confirm Password</label>
+                    <input type="password" class="form-control" id="place" placeholder="Confirm password" name="ca" pattern="^[A-Z]{1}[0-9]{7}$" required>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Set Password</button>
+                </div> 
+            </form>
+        </div>
+
+    </div>
+{% if error %}
+<script>
+    var messd = "{{ error|escapejs }}"; // Use escapejs filter for safety
+    alert(messd);
+</script>
+{% endif %}
+</body>
+</html>

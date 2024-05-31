@@ -1,0 +1,79 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Sign-up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background:url('/static/images/signup2.jpg') center center fixed;
+            background-size: cover;
+            color: #fff; /* Text color for the climate portal information */
+        }
+        .container {
+            text-align: center;
+            /* Background color with opacity */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            background-position: center;
+            
+            color:bisque;
+        }
+        #climatePortal {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: left;
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="climatePortal">
+        <h2>SIGN-UP</h2>
+    </div>
+
+    <div class="container pt-5 my-5">
+        <h1>Sign-up</h1>
+        <form class="was-validated" method="post">
+            {% csrf_token %}
+            <div class="form-group pt-3 text-light" style="background-color: blueviolet;">
+                <label for="NAME">NAME:</label>
+                <input type="text" class="form-control" id="NAME" placeholder="Enter NAME" name="na" required>
+            </div>
+            <div class="form-group pt-3 text-light" style="background-color: #43d098;">
+                <label for="NAME">PLACE:</label>
+                <input type="text" class="form-control" id="place" placeholder="Enter PLACE" name="pa" required spellcheck="true">
+            </div>
+            <div class="form-group pt-3 text-light" style="background-color:darkcyan;">
+                <label for="NAME">EMAIL-ID</label>
+                <input type="email" class="form-control" id="NAME" placeholder="Enter Email-id" name="ms" required>
+            </div>
+            <button type="submit" class="btn btn-primary mx-5 mx-5">Send OTP</button>
+        </form>
+            
+
+
+
+
+    </div>
+    
+
+    
+</body>
+</html>
